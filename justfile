@@ -1,10 +1,10 @@
 HOST_FILE := './ignored/host'
 
-# displays help menu
+# display help menu
 default:
 	@just --list
 
-# init
+# initialize dotfiles
 init host='':
 	scripts/init.sh {{host}} {{HOST_FILE}}
 
