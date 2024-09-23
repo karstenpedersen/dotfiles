@@ -101,8 +101,32 @@
     wget
     git
     just
+    
+
     libsForQt5.krohnkite
   ];
+
+  # Fonts
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-emoji
+      noto-fonts-extra
+      twemoji-color-font
+      (nerdfonts.override { fonts = [ "FiraMono" ]; })
+    ];
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "Noto Serif" ];
+        sansSerif = [ "Noto Sans" ];
+        monospace = [ "Fira Mono" ];
+      };
+    };
+  };
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

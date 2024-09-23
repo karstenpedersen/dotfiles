@@ -31,6 +31,7 @@
       vscjava.vscode-java-dependency
       vscjava.vscode-java-debug
       golang.go
+      bbenoist.nix
     ];
     userSettings = {
       "workbench.startupEditor" = "none";
