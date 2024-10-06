@@ -47,7 +47,7 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -84,12 +84,20 @@
   users.users.karsten = {
     isNormalUser = true;
     description = "karsten";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     packages = with pkgs; [
       firefox
       kate
     ];
   };
+
+  # Virtualisation
+  virtualisation.docker.enable = true;
+
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

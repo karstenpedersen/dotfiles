@@ -4,6 +4,18 @@
   imports = [
     ./programs.nix
   ];
+
+  # catppuccin = {
+  #   enable = true;
+  #   accent = "mauve";
+  #   flavor = "mocha";
+  #   pointerCursor = {
+  #     enable = true;
+  #     accent = "mauve";
+  #     flavor = "mocha";
+  #   };
+  # };
+
   home = {
     username = "karsten";
     homeDirectory = "/home/karsten";

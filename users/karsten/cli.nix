@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../../modules/home/programs/bash
     ../../modules/home/programs/yazi
     ../../modules/home/programs/fzf
     ../../modules/home/programs/btop
@@ -11,6 +12,10 @@
     ../../modules/home/programs/starship
     ../../modules/home/programs/direnv
     ../../modules/home/programs/nb
+    ../../modules/home/programs/skim
+    ../../modules/home/programs/k9s
+    ../../modules/home/programs/cava
+    ../../modules/home/programs/global
   ];
 
   home.packages = with pkgs; [

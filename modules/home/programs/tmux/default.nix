@@ -8,7 +8,7 @@
       vim-tmux-navigator
       sensible
       yank
-      catppuccin
+      # catppuccin
     ];
     extraConfig = ''
       # Start windows and panes at index 1

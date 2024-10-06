@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = { nixpkgs, ... }@inputs: {
@@ -16,6 +17,7 @@
         modules = [
           ./hosts/omen15/configuration.nix
           inputs.home-manager.nixosModules.default
+          # inputs.catppuccin.homeManagerModules.catppuccin
         ];
         specialArgs = { inherit inputs; };
       };

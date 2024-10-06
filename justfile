@@ -12,6 +12,10 @@ init host='':
 rebuild:
 	scripts/rebuild.sh {{HOST_FILE}}
 
+# test flake
+test:
+	scripts/test.sh {{HOST_FILE}}
+
 # update flake
 update:
 	nix flake update
