@@ -7,7 +7,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    catppuccin.url = "github:catppuccin/nix";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, ... }@inputs: {
@@ -17,7 +25,7 @@
         modules = [
           ./hosts/omen15/configuration.nix
           inputs.home-manager.nixosModules.default
-          # inputs.catppuccin.homeManagerModules.catppuccin
+          inputs.sops-nix.nixosModules.sops
         ];
         specialArgs = { inherit inputs; };
       };

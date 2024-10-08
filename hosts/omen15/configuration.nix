@@ -90,7 +90,7 @@
       "docker"
     ];
     packages = with pkgs; [
-      firefox
+      chromium
       kate
     ];
   };
@@ -110,7 +110,6 @@
     git
     just
     
-
     libsForQt5.krohnkite
   ];
 

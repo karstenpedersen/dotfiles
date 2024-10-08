@@ -16,6 +16,8 @@
     ../../modules/home/programs/k9s
     ../../modules/home/programs/cava
     ../../modules/home/programs/global
+    ../../modules/home/programs/helix
+    ../../modules/home/programs/zellij
   ];
 
   home.packages = with pkgs; [
@@ -42,6 +44,10 @@
     gh
     slides
     pre-commit
+    calc
+    wl-clipboard
+    ffmpegthumbnailer
+    xdg-utils
 
     tealdeer
     cheat
