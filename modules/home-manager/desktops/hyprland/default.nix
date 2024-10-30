@@ -230,7 +230,7 @@ in
         name = "Flat-Remix-GTK-Grey-Darkest";
       };
       iconTheme = {
-        package = pkgs.gnome.adwaita-icon-theme;
+        package = pkgs.adwaita-icon-theme;
         name = "Adwaita";
       };
       font = {

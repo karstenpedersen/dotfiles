@@ -2,51 +2,28 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
-    # ../../modules/nixos/hosts/sops.nix
     inputs.home-manager.nixosModules.default
+    inputs.sops-nix.nixosModules.sops
+    ./hardware-configuration.nix
+    ../../../modules/nixos/nix.nix
+    ../../../modules/nixos/fonts.nix
+    ../../../modules/nixos/locale.nix
+    ../../../modules/nixos/documentation.nix
   ];
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.hostName = "omen15";
 
   # Enable networking
   networking.networkmanager.enable = true;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = {
-      karsten = import ./home.nix;
-    };
-    backupFileExtension = "hm2";
-  };
-
-  # Set your time zone.
-  time.timeZone = "Europe/Copenhagen";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_DK.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "da_DK.UTF-8";
-    LC_IDENTIFICATION = "da_DK.UTF-8";
-    LC_MEASUREMENT = "da_DK.UTF-8";
-    LC_MONETARY = "da_DK.UTF-8";
-    LC_NAME = "da_DK.UTF-8";
-    LC_NUMERIC = "da_DK.UTF-8";
-    LC_PAPER = "da_DK.UTF-8";
-    LC_TELEPHONE = "da_DK.UTF-8";
-    LC_TIME = "da_DK.UTF-8";
+    users.karsten = import ./home.nix;
+    backupFileExtension = "hm";
   };
 
   # Enable the X11 windowing system.
@@ -54,7 +31,6 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
-  # services.desktopManager.plasma6.enable = true;
 
   programs.hyprland.enable = true;
 
@@ -121,25 +97,6 @@
     
     libsForQt5.krohnkite
   ];
-
-  # Fonts
-  fonts = {
-    enableDefaultPackages = true;
-    packages = with pkgs; [
-      noto-fonts
-      noto-fonts-emoji
-      noto-fonts-extra
-      twemoji-color-font
-      (nerdfonts.override { fonts = [ "FiraMono" ]; })
-    ];
-    fontconfig = {
-      defaultFonts = {
-        serif = [ "Noto Serif" ];
-        sansSerif = [ "Noto Sans" ];
-        monospace = [ "Fira Mono" ];
-      };
-    };
-  };
 
   # Bluetooth
   hardware.bluetooth.enable = true;

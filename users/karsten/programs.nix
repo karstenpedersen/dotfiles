@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ../../modules/home/programs/alacritty
-    ../../modules/home/programs/vscode
-    ../../modules/home/programs/emacs
-    ../../modules/home/programs/firefox
+    ../../modules/home-manager/programs/alacritty
+    ../../modules/home-manager/programs/vscode
+    ../../modules/home-manager/programs/emacs
+    ../../modules/home-manager/programs/firefox
     ./cli.nix
   ];
   nixpkgs.config.allowUnfree = true;
@@ -21,6 +21,4 @@
     kdePackages.dragon
     obsidian
   ];
-  # obs-studio.catppuccin.enable = true;
-  # gtk.catppuccin.enable = true;
 }

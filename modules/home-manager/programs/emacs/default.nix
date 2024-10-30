@@ -46,7 +46,7 @@
   };
   services.emacs.enable = true;
   home.file.".config/emacs/" = {
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/home/programs/emacs/config";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/home-manager/programs/emacs/config";
     recursive = true;
   };
   # home.file.".config/emacs/variables.el".text = ''

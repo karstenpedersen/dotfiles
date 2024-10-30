@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../modules/home/window-managers/hyprland
+    ../../modules/home-manager/desktops/hyprland
     ./programs.nix
   ];
 

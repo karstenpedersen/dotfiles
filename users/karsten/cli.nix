@@ -2,23 +2,23 @@
 
 {
   imports = [
-    ../../modules/home/programs/bash
-    ../../modules/home/programs/yazi
-    ../../modules/home/programs/fzf
-    ../../modules/home/programs/btop
-    ../../modules/home/programs/git
-    ../../modules/home/programs/lazygit
-    ../../modules/home/programs/tmux
-    ../../modules/home/programs/starship
-    ../../modules/home/programs/direnv
-    ../../modules/home/programs/nb
-    ../../modules/home/programs/skim
-    ../../modules/home/programs/k9s
-    ../../modules/home/programs/cava
-    ../../modules/home/programs/global
-    ../../modules/home/programs/helix
-    ../../modules/home/programs/zellij
-    ../../modules/home/programs/nb
+    ../../modules/home-manager/programs/bash
+    ../../modules/home-manager/programs/yazi
+    ../../modules/home-manager/programs/fzf
+    ../../modules/home-manager/programs/btop
+    ../../modules/home-manager/programs/git
+    ../../modules/home-manager/programs/lazygit
+    ../../modules/home-manager/programs/tmux
+    ../../modules/home-manager/programs/starship
+    ../../modules/home-manager/programs/direnv
+    ../../modules/home-manager/programs/nb
+    ../../modules/home-manager/programs/skim
+    ../../modules/home-manager/programs/k9s
+    ../../modules/home-manager/programs/cava
+    ../../modules/home-manager/programs/global
+    ../../modules/home-manager/programs/helix
+    ../../modules/home-manager/programs/zellij
+    ../../modules/home-manager/programs/nb
   ];
 
   home.packages = with pkgs; [
