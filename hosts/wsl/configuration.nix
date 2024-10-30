@@ -4,8 +4,8 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     inputs.nixos-wsl.nixosModules.default
-    ../../../modules/common/nix.nix
-    ../../../modules/wsl/base.nix
+    ../../modules/common/nix.nix
+    ../../modules/wsl/base.nix
   ];
 
   home-manager = {
@@ -13,8 +13,8 @@
     users = {
       karsten = {
         imports = [
-          ../../../modules/home-manager/base.nix
-          ../../../users/karsten
+          ../../modules/home-manager/base.nix
+          ../../users/karsten
         ];
 
         # Home

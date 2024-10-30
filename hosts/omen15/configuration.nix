@@ -5,10 +5,10 @@
     inputs.home-manager.nixosModules.default
     inputs.sops-nix.nixosModules.sops
     ./hardware-configuration.nix
-    ../../../modules/nixos/nix.nix
-    ../../../modules/nixos/fonts.nix
-    ../../../modules/nixos/locale.nix
-    ../../../modules/nixos/documentation.nix
+    ../../modules/nixos/nix.nix
+    ../../modules/nixos/fonts.nix
+    ../../modules/nixos/locale.nix
+    ../../modules/nixos/documentation.nix
   ];
 
   # Bootloader.
