@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   programs.helix = {
@@ -18,7 +18,6 @@
           enable = true;
         };
         true-color = true;
-        color-modes = true;
         cursor-shape = {
           insert = "bar";
           normal = "block";

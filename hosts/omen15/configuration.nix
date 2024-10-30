@@ -1,10 +1,11 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    # ../../modules/nixos/hosts/sops.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -22,7 +23,13 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  home-manager.users.karsten = import ./home.nix;
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      karsten = import ./home.nix;
+    };
+    backupFileExtension = "hm2";
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Copenhagen";
@@ -47,7 +54,9 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.plasma6.enable = true;
+
+  programs.hyprland.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -161,5 +170,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }

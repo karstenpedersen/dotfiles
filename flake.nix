@@ -8,10 +8,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     sops-nix = {
-      url = "github:Mic92/sops-nix";
+      url = "github:mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    # hyprland = {
+    #   # type = "git";
+    #   # url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+    #   url = "https://github.com/hyprwm/hyprland";
+    #   # submodules = true;
+    # };
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";

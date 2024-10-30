@@ -18,6 +18,7 @@
     ../../modules/home/programs/global
     ../../modules/home/programs/helix
     ../../modules/home/programs/zellij
+    ../../modules/home/programs/nb
   ];
 
   home.packages = with pkgs; [
@@ -30,6 +31,8 @@
     file
     fd
     pstree
+    strace
+    bpftrace
     xxd
     git-ignore
     duf
@@ -51,10 +54,17 @@
 
     tealdeer
     cheat
+    graph-easy
+
+    age
+    hyperfine
+    lolcat
 
     # Containers
     podman
     podman-tui
+    lazydocker
+    dive
 
     # Processors
     jq
