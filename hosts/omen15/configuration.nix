@@ -10,7 +10,7 @@
     ../../modules/nixos/base.nix
     ../../modules/nixos/fonts.nix
     ../../modules/nixos/documentation.nix
-    ../../modules/nixos/eduroam.nix
+    # ../../modules/nixos/eduroam.nix
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/printing.nix
     ../../modules/nixos/audio.nix
@@ -26,8 +26,6 @@
         ../../modules/home-manager/base.nix
         ../../users/karsten
       ];
-
-      home.stateVersion = "24.05";
     };
     backupFileExtension = "hm";
   };

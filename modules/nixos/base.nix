@@ -3,7 +3,7 @@
 {
   imports = [
     ./nix.nix
-    ./sops.nix
+    # ./sops.nix
     ./locale.nix
   ];
 

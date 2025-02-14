@@ -20,8 +20,6 @@
           ../../modules/home-manager/base.nix
           ../../users/karsten
         ];
-
-        home.stateVersion = "24.05";
       };
     };
     backupFileExtension = "hm";
