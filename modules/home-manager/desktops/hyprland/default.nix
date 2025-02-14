@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 
 let
   startup = pkgs.pkgs.writeShellScriptBin "run" ''
@@ -32,7 +32,6 @@ in
       pamixer
       light
       mako
-      dolphin
     ];
 
     services.hyprpaper = {
@@ -107,7 +106,7 @@ in
         };
         input = {
           kb_layout = "us,dk";
-          kb_options = "grp:alt_shift_toggle,caps:escape";
+          kb_options = "caps:escape"; # grp:alt_shift_toggle,
           follow_mouse = true;
           touchpad.natural_scroll = true;
           sensitivity = 0;
@@ -142,7 +141,6 @@ in
         dwindle = {
           pseudotile = true;
           preserve_split = true;
-          no_gaps_when_only = 1;
         };
         windowrule = [
           "workspace 8, title:WebCord"
@@ -152,6 +150,16 @@ in
           "pin, xdragon"
           "opacity 0.5, xdragon"
           "move 8 100%-100, xdragon"
+        ];
+        windowrulev2 = [
+          "bordersize 0, floating:0, onworkspace:w[tv1]"
+          "rounding 0, floating:0, onworkspace:w[tv1]"
+          "bordersize 0, floating:0, onworkspace:f[1]"
+          "rounding 0, floating:0, onworkspace:f[1]"
+        ];
+        workspace = [
+          "w[tv1], gapsout:0, gapsin:0"
+          "f[1], gapsout:0, gapsin:0"
         ];
         bind = [
           "$mod, return, exec, $terminal"

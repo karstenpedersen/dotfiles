@@ -4,10 +4,14 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     inputs.nixos-wsl.nixosModules.default
-    ../../modules/common/nix.nix
+
+    ./hardware-configuration.nix
+
     ../../modules/wsl/base.nix
+    ../../modules/nixos/nix.nix
   ];
 
+  # Home Manager
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
@@ -17,13 +21,12 @@
           ../../users/karsten
         ];
 
-        # Home
-        programs.home-manager.enable = true;
         home.stateVersion = "24.05";
       };
     };
     backupFileExtension = "hm";
   };
 
+  # Networking
   networking.hostName = "wsl";
 }

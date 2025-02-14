@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ ... }:
 
 {
   programs.yazi = {
@@ -18,27 +18,31 @@
       opener = {
         edit = [
           {
-            run = "${pkgs.helix}/bin/helix '$@'";
+            run = "\${EDITOR:-vi} \"$@\"";
             block = true;
             for = "unix";
+            desc = "Edit using \${EDITOR:-vi}";
           }
           {
-            run = "${pkgs.vscode}/bin/code '$@'";
+            run = "\${VISUAL:-code} \"$@\"";
             block = true;
             for = "unix";
+            desc = "Visual Editor";
           }
         ];
         play = [
           {
-            run = "${pkgs.kdePackages.dragon}/bin/dragon '$@'";
+            run = "dragon \"$@\"";
             orphan = true;
             for = "unix";
+            desc = "Play";
           }
-        ];    
+        ];
         open = [
           {
-            run = "${pkgs.xdg-utils}/bin/xdg-open '$@'";
+            run = "xdg-open \"$1\"";
             desc = "Open";
+            for = "linux";
           }
         ];
       };
@@ -46,31 +50,40 @@
         rules = [
           { mime = "text/*"; use = "edit"; }
           { mime = "video/*"; use = "play"; }
+          { mime = "image/*"; use = "open"; }
           { name = "*.json"; use = "edit"; }
-          { name = "*.html"; use = [ "open" "edit" ]; }
+          { name = "*.html"; use = [ "edit" ]; }
+          { name = "*/javascript"; use = [ "edit" ]; }
+          { name = "*"; use = [ "open" ]; }
         ];
       };
     };
     keymap = {
-      
+      manager.prepend_keymap = [ 
+        {
+          on = [ "g" "d" ];
+          run = "cd ~/downloads";
+          desc = "Go to downloads";
+        }
+        {
+          on = [ "g" "D" ];
+          run = "cd ~/documents";
+          desc = "Go to documents";
+        }
+        {
+          on = [ "g" "." ];
+          run = "cd ~/dotfiles";
+          desc = "Go to dotfiles";
+        }
+        {
+          on = [ "g" "r" ];
+          run = "cd ~/repos";
+          desc = "Go to repos";
+        }
+      ];
     };
-    # flavors = {
-    #   catppuccin-mocha = ./flavors/catppuccin-mocha.yazi;
-    # };
   };
   home.file = {
-    # ".config/yazi/theme.toml".text = ''
-    #   [flavor]
-    #   use = "catppuccin-mocha"
-
-    #   [opener]
-    #   edit = [
-    #     { run = 'hx $@', block = true, for = "unix" },
-    #   ]
-    #   open = [
-    #     { run = 'xdg-open "$@"', desc = "Open" }
-    #   ]
-    # '';
     ".config/yazi/flavors".source = ./flavors;
   };
   programs.bash.initExtra = ''

@@ -12,9 +12,11 @@
     shellAliases = {
       lg = "lazygit";
       "g." = "cd ~/dotfiles";
+      "gr" = "cd ~/repos";
+      "gd" = "cd ~/downloads";
+      "gD" = "cd ~/documents";
       gv = "cd ~/Nextcloud/vault/";
-      gnb = "cd ~/Nextcloud/nb/";
-      gcs = "cd ~/Nextcloud/vault/001-education/sdu/bachelor-in-computer-science/4-semester/";
+      gn = "cd ~/Nextcloud/nb/";
       ll = "exa -alh";
       ls = "exa";
       tree = "exa --tree";

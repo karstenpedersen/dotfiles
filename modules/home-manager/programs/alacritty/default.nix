@@ -4,7 +4,7 @@
   programs.alacritty = {
     enable = true;
     settings = {
-      shell = {
+      terminal.shell = {
         program = "${pkgs.bash}/bin/bash";
         # args = ["-c" "tmux new"];
       };

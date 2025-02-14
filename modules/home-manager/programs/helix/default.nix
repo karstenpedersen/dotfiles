@@ -65,11 +65,26 @@
       nil
       rust-analyzer
       templ
-      buf-language-server
       jdt-language-server
     ];
     languages = {
-      
+      # language = [
+      #   {
+      #     name = "typescript";
+      #     file-types = [ "ts" "js" ];
+      #     language-server = {
+      #       command = "deno";
+      #       args = [ "lsp" ];
+      #     };
+      #     config = {
+      #       deno = {
+      #         enable = true;
+      #         lint = true;
+      #         importMap = "deno.json";
+      #       };
+      #     };
+      #   }
+      # ];
     };
   };
   # home.file.".config/helix/hemux.sh".source = ''

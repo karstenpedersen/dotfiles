@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -8,7 +8,6 @@
     ../../modules/home-manager/programs/btop
     ../../modules/home-manager/programs/git
     ../../modules/home-manager/programs/lazygit
-    ../../modules/home-manager/programs/tmux
     ../../modules/home-manager/programs/starship
     ../../modules/home-manager/programs/direnv
     ../../modules/home-manager/programs/nb
@@ -23,7 +22,6 @@
 
   home.packages = with pkgs; [
     cz-cli
-    micro
     man-pages
     eza
     ripgrep
@@ -60,14 +58,26 @@
     hyperfine
     lolcat
 
+    fasm
+    gf
+    gdb
+
     # Containers
     podman
     podman-tui
+    podman-compose
     lazydocker
     dive
 
     # Processors
     jq
     yq
+
+    # TUI
+    pulsemixer
+    gobang
+    dblab
+    lazysql
+    nap
   ];
 }

@@ -6,20 +6,20 @@ default:
 
 # initialize dotfiles
 init host='':
-	scripts/init.sh {{host}} {{HOST_FILE}}
+	@scripts/init.sh {{host}} {{HOST_FILE}}
 
 # rebuild flake
 rebuild:
-	scripts/rebuild.sh {{HOST_FILE}}
+	@scripts/rebuild.sh {{HOST_FILE}}
 
 # test flake
 test:
-	scripts/test.sh {{HOST_FILE}}
+	@scripts/test.sh {{HOST_FILE}}
 
 # update flake
 update:
-	nix flake update
+	@nix flake update
 
 # see diffs made to flake.lock
 diff:
-	git diff ':!flake.lock'
+	@git diff ':!flake.lock'

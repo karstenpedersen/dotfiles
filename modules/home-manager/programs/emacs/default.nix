@@ -35,7 +35,7 @@
       # epkgs.gtags-mode
       epkgs.ggtags
 
-      epkgs.dired-single
+      # epkgs.dired-single
 
       # Languages
       epkgs.go-mode

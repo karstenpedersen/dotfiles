@@ -15,7 +15,10 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixos-wsl.url = "github:nix-community/nixos-wsl/main";
+    nixos-wsl = {
+      url = "github:nix-community/nixos-wsl/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, ... }@inputs: {
@@ -29,6 +32,11 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [ ./hosts/wsl/configuration.nix ];
+      };
+      eq14-01 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [ ./hosts/eq14/configuration.nix ];
       };
     };
   };

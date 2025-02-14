@@ -4,6 +4,7 @@
   imports = [
     ../../modules/home-manager/desktops/hyprland
     ./programs.nix
+    ./directories.nix
   ];
 
   desktop.hyprland.enable = true;

@@ -4,14 +4,15 @@
   imports = [
     ../../modules/home-manager/programs/alacritty
     ../../modules/home-manager/programs/vscode
-    ../../modules/home-manager/programs/emacs
-    ../../modules/home-manager/programs/firefox
     ./cli.nix
   ];
+
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     spotify
     webcord
+    element-desktop
+    signal-desktop
     zotero
     via
     xournalpp
@@ -20,5 +21,11 @@
     kdePackages.kdenlive
     kdePackages.dragon
     obsidian
+    bruno
+    prismlauncher
+    hyprland
+    octaveFull
   ];
+
+  services.mpris-proxy.enable = true;
 }

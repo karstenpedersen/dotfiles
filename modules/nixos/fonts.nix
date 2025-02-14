@@ -8,7 +8,7 @@
       noto-fonts-emoji
       noto-fonts-extra
       twemoji-color-font
-      (nerdfonts.override { fonts = [ "FiraMono" ]; })
+      nerd-fonts.fira-mono
     ];
     fontconfig = {
       defaultFonts = {
