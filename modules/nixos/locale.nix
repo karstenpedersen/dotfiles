@@ -1,10 +1,10 @@
 { lib, config, ... }:
 
 let
-  cfg = config.host.locale;
+  cfg = config.custom.host.locale;
 in
 {
-  options.host.locale = {
+  options.custom.host.locale = {
     timeZone = lib.mkOption {
       default = "Europe/Copenhagen";
       description = ''

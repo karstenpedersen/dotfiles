@@ -1,9 +1,7 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
-    inputs.sops-nix.nixosModules.sops
-  
     ./nix.nix
     ./sops.nix
     ./locale.nix

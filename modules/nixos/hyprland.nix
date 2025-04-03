@@ -1,4 +1,5 @@
 { inputs, pkgs, ... }:
+
 {
   # Display manager
   services.displayManager.sddm.enable = true;

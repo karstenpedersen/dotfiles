@@ -1,30 +1,29 @@
 { inputs, config, lib, ... }:
-
 let
-  cfg = config.host.sops;
+  cfg = config.custom.host.sops;
 in
 {
   imports = [
     inputs.sops-nix.nixosModules.sops
   ];
 
-  options.host.sops = {
+  options.custom.host.sops = {
     sopsFile = lib.mkOption {
       default = ../../../../ignored/secrets.yaml;
       description = ''
-        secrets file
+        Secrets file
       '';
     };
     sshKeyPaths = lib.mkOption {
       default = [ "/etc/ssh/ssh_host_ed25519_key" ];
       description = ''
-        hosts SSH key location
+        Hosts SSH key location
       '';
     };
     keyFile = lib.mkOption {
       default = "/var/lib/sops-nix/key.txt";
       description = ''
-        new key location
+        New key location
       '';
     };
   };
