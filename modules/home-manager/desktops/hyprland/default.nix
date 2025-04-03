@@ -112,7 +112,7 @@ in
         };
         input = {
           kb_layout = "us,dk";
-          kb_options = "caps:escape"; # grp:alt_shift_toggle,
+          kb_options = "caps:escape,grp:toggle"; #,grp:alt_shift_toggle";
           follow_mouse = true;
           touchpad.natural_scroll = true;
           sensitivity = 0;
