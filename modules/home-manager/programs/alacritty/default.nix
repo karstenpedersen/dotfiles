@@ -1,13 +1,12 @@
-{ lib, pkgs, ... }:
-
+{ ... }:
 {
   programs.alacritty = {
     enable = true;
     settings = {
-      terminal.shell = {
-        program = "${pkgs.bash}/bin/bash";
-        # args = ["-c" "tmux new"];
-      };
+      # terminal.shell = {
+      #   program = "${pkgs.bash}/bin/bash";
+      #   # args = ["-c" "tmux new"];
+      # };
       env.TERM = "xterm-256color";
       window = {
         padding = {

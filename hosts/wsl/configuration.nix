@@ -1,15 +1,17 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
-    inputs.nixos-wsl.nixosModules.default
-
     ./hardware-configuration.nix
 
     ../../modules/wsl/base.nix
-    ../../modules/nixos/nix.nix
   ];
+
+  # WSL
+  wsl = {
+    defaultUser = "karsten";
+    docker-desktop.enable = true;
+  };
 
   # Home Manager
   home-manager = {
@@ -24,6 +26,19 @@
     };
     backupFileExtension = "hm";
   };
+
+  # User
+  users.users.karsten = {
+    isNormalUser = true;
+    description = "karsten";
+    shell = pkgs.bash;
+  };
+
+  # VSCode
+  environment.systemPackages = [
+    pkgs.wget
+  ];
+  vscode-remote-workaround.enable = true;
 
   # Networking
   networking.hostName = "wsl";

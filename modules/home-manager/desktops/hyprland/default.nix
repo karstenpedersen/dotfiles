@@ -1,18 +1,18 @@
-{ pkgs, lib, config, inputs, ... }:
+{ inputs, pkgs, lib, config, ... }:
 
 let
   startup = pkgs.pkgs.writeShellScriptBin "run" ''
     ${pkgs.mako}/bin/mako &
   '';
 
-  cfg = config.desktop.hyprland;
+  cfg = config.custom.desktop.hyprland;
 in
 {
   imports = [
     ../../programs/rofi
   ];
 
-  options.desktop.hyprland = {
+  options.custom.desktop.hyprland = {
     enable = lib.mkEnableOption "Enable Hyprland desktop.";
     wallpaper = lib.mkOption {
       default = ../../../../assets/nix-wallpaper.png;
@@ -32,6 +32,7 @@ in
       pamixer
       light
       mako
+      hyprsome
     ];
 
     services.hyprpaper = {
@@ -88,6 +89,11 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      plugins = [
+        inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+      ];
       settings = {
         "$mod" = "SUPER";
         "$terminal" = "alacritty";
@@ -147,9 +153,9 @@ in
           "noinitialfocus, title:WebCord"
           "workspace 9, title:Spotify"
           "noinitialfocus, title:Spotify"
-          "pin, xdragon"
-          "opacity 0.5, xdragon"
-          "move 8 100%-100, xdragon"
+          # "pin, xdragon"
+          # "opacity 0.5, xdragon"
+          # "move 8 100%-100, xdragon"
         ];
         windowrulev2 = [
           "bordersize 0, floating:0, onworkspace:w[tv1]"
@@ -210,9 +216,9 @@ in
               ws = builtins.toString (x + 1);
             in
             [
-              "$mod, ${ws}, workspace, ${ws}"
-              "$mod SHIFT, ${ws}, movetoworkspacesilent, ${ws}"
-              "$mod CTRL, ${ws}, movetoworkspace, ${ws}"
+              "$mod, ${ws}, split-workspace, ${ws}"
+              "$mod CTRL, ${ws}, split-movetoworkspace, ${ws}"
+              "$mod SHIFT, ${ws}, split-movetoworkspacesilent, ${ws}"
             ]
           )
           9));

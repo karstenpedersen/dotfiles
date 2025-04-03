@@ -1,5 +1,4 @@
 { pkgs, ... }:
-
 {
   imports = [
     ../../modules/home-manager/programs/alacritty
@@ -10,10 +9,7 @@
   home.packages = with pkgs; [
     spotify
     webcord
-    element-desktop
-    signal-desktop
     zotero
-    via
     xournalpp
     nextcloud-client
     obs-studio
@@ -22,9 +18,9 @@
     obsidian
     bruno
     prismlauncher
-    hyprland
+    # hyprland
     octaveFull
+    wdisplays
+    godot_4
   ];
-
-  services.mpris-proxy.enable = true;
 }

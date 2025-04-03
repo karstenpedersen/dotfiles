@@ -1,13 +1,14 @@
 { ... }:
-
 {
   imports = [
-    ../../modules/home-manager/desktops/hyprland
     ./programs.nix
     ./directories.nix
+    ../../modules/home-manager/desktops/hyprland
+    ../../modules/home-manager/services/kanshi
   ];
 
-  desktop.hyprland.enable = true;
+  # Enable Hyprland config
+  custom.desktop.hyprland.enable = true;
 
   home = {
     username = "karsten";

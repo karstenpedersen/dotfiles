@@ -1,9 +1,7 @@
 { config, inputs, ... }:
-
 {
   imports = [
-    inputs.home-manager.nixosModules.default
-    inputs.sops-nix.nixosModules.sops
+    inputs.home-manager.nixosModules.home-manager
 
     ./hardware-configuration.nix
 
@@ -16,6 +14,7 @@
     ../../modules/nixos/audio.nix
     ../../modules/nixos/hyprland.nix
     ../../modules/nixos/xserver.nix
+    ../../modules/nixos/virtualization.nix
   ];
 
   # Home Manager
@@ -28,6 +27,8 @@
       ];
     };
     backupFileExtension = "hm";
+    useGlobalPkgs = true;
+    useUserPackages = true;
   };
 
   # Define a user account

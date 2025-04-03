@@ -3,21 +3,16 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    sops-nix = {
-      url = "github:mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixos-wsl = {
-      url = "github:nix-community/nixos-wsl/main";
-      inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.url = "github:mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-wsl.url = "github:nix-community/nixos-wsl/main";
+    nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/hyprland";
+    split-monitor-workspaces = {
+      url = "github:duckonaut/split-monitor-workspaces";
+      inputs.hyprland.follows = "hyprland";
     };
   };
 

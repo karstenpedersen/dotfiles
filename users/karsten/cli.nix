@@ -21,6 +21,7 @@
   ];
 
   home.packages = with pkgs; [
+    devenv
     cz-cli
     man-pages
     eza
@@ -61,6 +62,9 @@
     fasm
     gf
     gdb
+
+    acpi
+    wlr-randr
 
     # Containers
     podman

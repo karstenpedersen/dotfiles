@@ -8,6 +8,8 @@
       layout = "us";
       variant = "";
     };
-    libinput.enable = true;
   };
+
+  # TODO: Move somewhere else
+  services.libinput.enable = true;
 }
