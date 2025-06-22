@@ -10,12 +10,6 @@
     ];
     shellAliases = {
       lg = "lazygit";
-      "g." = "cd ~/dotfiles";
-      "gr" = "cd ~/repos";
-      "gd" = "cd ~/downloads";
-      "gD" = "cd ~/documents";
-      gv = "cd ~/Nextcloud/vault/";
-      gn = "cd ~/Nextcloud/nb/";
       ll = "exa -alh";
       ls = "exa";
       tree = "exa --tree";

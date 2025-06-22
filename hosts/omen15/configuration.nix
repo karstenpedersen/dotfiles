@@ -1,4 +1,5 @@
-{ config, inputs, ... }:
+{ vars, config, inputs, ... }:
+
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -8,18 +9,18 @@
     ../../modules/nixos/base.nix
     ../../modules/nixos/fonts.nix
     ../../modules/nixos/documentation.nix
-    # ../../modules/nixos/eduroam.nix
+    ../../modules/nixos/eduroam.nix
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/printing.nix
     ../../modules/nixos/audio.nix
-    ../../modules/nixos/hyprland.nix
+    ../../modules/nixos/plasma.nix
     ../../modules/nixos/xserver.nix
     ../../modules/nixos/virtualization.nix
   ];
 
   # Home Manager
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = { inherit inputs vars; };
     users.karsten = {
       imports = [
         ../../modules/home-manager/base.nix

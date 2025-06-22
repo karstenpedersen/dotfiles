@@ -19,6 +19,7 @@ let
     skellock.just
     ms-vscode.makefile-tools
     adpyke.codesnap
+    redhat.vscode-yaml
   ];
 
   commonUserSettings = {
@@ -57,106 +58,120 @@ in
 {
   programs.vscode = {
     enable = true;
-    profiles.default = {
-      extensions = commonExtensions;
-      userSettings = commonUserSettings;
-    };
-    profiles.web = {
-      extensions = with pkgs.vscode-extensions; [
-        prisma.prisma
-        svelte.svelte-vscode
-        esbenp.prettier-vscode
-        bradlc.vscode-tailwindcss
-      ] ++ commonExtensions;
-      userSettings = {
-        "[svelte]" = {
-          "editor.tabSize" = 2;
-          "editor.formatOnSave" = true;
-          "editor.defaultFormatter" = "svelte.svelte-vscode";
-        };
-        "[html]" = {
-          "editor.tabSize" = 2;
-          "editor.formatOnSave" = true;
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[css]" = {
-          "editor.tabSize" = 2;
-          "editor.formatOnSave" = true;
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[javascript]" = {
-          "editor.tabSize" = 2;
-          "editor.formatOnSave" = true;
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-        "[typescript]" = {
-          "editor.tabSize" = 2;
-          "editor.formatOnSave" = true;
-          "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        };
-      } // commonUserSettings;
-    };
-    profiles.golang = {
-      extensions = with pkgs.vscode-extensions; [
-        golang.go
-        zxh404.vscode-proto3
-      ] ++ commonExtensions;
-      userSettings = {
-        "editor.formatOnSave" = true;
-      } // commonUserSettings;
-    };
-    profiles.java = {
-      extensions = with pkgs.vscode-extensions; [
-        redhat.java
-        vscjava.vscode-maven
-        vscjava.vscode-java-test
-        vscjava.vscode-java-dependency
-        vscjava.vscode-java-debug
-      ] ++ commonExtensions;
-      userSettings = {
-        "[java]" = {
-          "editor.tabSize" = 4;
-        };
-      } // commonUserSettings;
-    };
-    profiles.python = {
-      extensions = with pkgs.vscode-extensions; [
-        ms-python.python
-        ms-toolsai.jupyter
-        ms-toolsai.jupyter-keymap
-        ms-toolsai.jupyter-renderers
-        charliermarsh.ruff
-      ] ++ commonExtensions;
-      userSettings = {
-        "[python]" = {
-          "editor.formatOnSave" = true;
-          "editor.defaultFormatter" = "charliermarsh.ruff";
-          "editor.codeActionsOnSave" = {
-            "source.fixAll" = "explicit";
-            "source.organizeImports" = "explicit";
+    package = pkgs.vscodium;
+    profiles = {
+      default = {
+        extensions = commonExtensions;
+        userSettings = commonUserSettings;
+      };
+      web = {
+        extensions = with pkgs.vscode-extensions; [
+          prisma.prisma
+          svelte.svelte-vscode
+          esbenp.prettier-vscode
+          bradlc.vscode-tailwindcss
+          astro-build.astro-vscode
+        ] ++ commonExtensions;
+        userSettings = {
+          "[svelte]" = {
+            "editor.tabSize" = 2;
+            "editor.formatOnSave" = true;
+            "editor.defaultFormatter" = "svelte.svelte-vscode";
           };
-        };
-        "notebook.formatOnSave.enabled" = true;
-        "notebook.codeActionsOnSave" = {
-          "notebook.source.fixAll" = "explicit";
-          "notebook.source.organizeImports" = "explicit";
-        };
-      } // commonUserSettings;
-    };
-    profiles.haskell = {
-      extensions = with pkgs.vscode-extensions; [
-        haskell.haskell
-      ] ++ commonExtensions;
-      userSettings = {
-      } // commonUserSettings;
-    };
-    profiles.beam = {
-      extensions = with pkgs.vscode-extensions; [
-        elixir-lsp.vscode-elixir-ls
-        gleam.gleam
-      ] ++ commonExtensions;
-      userSettings = {
-      } // commonUserSettings;
+          "[html]" = {
+            "editor.tabSize" = 2;
+            "editor.formatOnSave" = true;
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[css]" = {
+            "editor.tabSize" = 2;
+            "editor.formatOnSave" = true;
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[javascript]" = {
+            "editor.tabSize" = 2;
+            "editor.formatOnSave" = true;
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+          "[typescript]" = {
+            "editor.tabSize" = 2;
+            "editor.formatOnSave" = true;
+            "editor.defaultFormatter" = "esbenp.prettier-vscode";
+          };
+        } // commonUserSettings;
+      };
+      golang = {
+        extensions = with pkgs.vscode-extensions; [
+          golang.go
+          zxh404.vscode-proto3
+        ] ++ commonExtensions;
+        userSettings = {
+          "editor.formatOnSave" = true;
+        } // commonUserSettings;
+      };
+      java = {
+        extensions = with pkgs.vscode-extensions; [
+          redhat.java
+          vscjava.vscode-maven
+          vscjava.vscode-java-test
+          vscjava.vscode-java-dependency
+          vscjava.vscode-java-debug
+        ] ++ commonExtensions;
+        userSettings = {
+          "[java]" = {
+            "editor.tabSize" = 4;
+          };
+        } // commonUserSettings;
+      };
+      python = {
+        extensions = with pkgs.vscode-extensions; [
+          ms-python.python
+          ms-toolsai.jupyter
+          ms-toolsai.jupyter-keymap
+          ms-toolsai.jupyter-renderers
+          charliermarsh.ruff
+        ] ++ commonExtensions;
+        userSettings = {
+          "[python]" = {
+            "editor.formatOnSave" = true;
+            "editor.defaultFormatter" = "charliermarsh.ruff";
+            "editor.codeActionsOnSave" = {
+              "source.fixAll" = "explicit";
+              "source.organizeImports" = "explicit";
+            };
+          };
+          "notebook.formatOnSave.enabled" = true;
+          "notebook.codeActionsOnSave" = {
+            "notebook.source.fixAll" = "explicit";
+            "notebook.source.organizeImports" = "explicit";
+          };
+        } // commonUserSettings;
+      };
+      haskell = {
+        extensions = with pkgs.vscode-extensions; [
+          haskell.haskell
+        ] ++ commonExtensions;
+        userSettings = {
+        } // commonUserSettings;
+      };
+      beam = {
+        extensions = with pkgs.vscode-extensions; [
+          elixir-lsp.vscode-elixir-ls
+          gleam.gleam
+        ] ++ commonExtensions;
+        userSettings = {
+        } // commonUserSettings;
+      };
+      typst = {
+        extensions = with pkgs.vscode-extensions; [
+          myriad-dreamin.tinymist
+        ] ++ commonExtensions;
+        userSettings = {
+          "[typ]" = {
+            "editor.formatOnSave" = true;
+          };
+        } // commonUserSettings;
+      };
     };
   };
 }

@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, config, ... }:
+{ pkgs, lib, config, ... }:
 
 let
   startup = pkgs.pkgs.writeShellScriptBin "run" ''
@@ -89,10 +89,9 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
       xwayland.enable = true;
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-      plugins = [
-        inputs.split-monitor-workspaces.packages.${pkgs.system}.split-monitor-workspaces
+      plugins = with pkgs.hyprlandPlugins; [
+        hyprspace
+        hyprsplit
       ];
       settings = {
         "$mod" = "SUPER";
@@ -167,6 +166,7 @@ in
           "w[tv1], gapsout:0, gapsin:0"
           "f[1], gapsout:0, gapsin:0"
         ];
+        plugin.hyprsplit.persistent_workspaces = true;
         bind = [
           "$mod, return, exec, $terminal"
           "$mod SHIFT, q, killactive"
@@ -188,6 +188,9 @@ in
           ", XF86AudioPause, exec, playerctl play-pause"
           ", XF86AudioNext, exec, playerctl next"
           ", XF86AudioPrev, exec, playerctl previous"
+
+          # Hyprspace
+          "$mod, o, overview:toggle, all"
 
           # Windows
           "$mod, h, movefocus, l"
@@ -216,9 +219,9 @@ in
               ws = builtins.toString (x + 1);
             in
             [
-              "$mod, ${ws}, split-workspace, ${ws}"
-              "$mod CTRL, ${ws}, split-movetoworkspace, ${ws}"
-              "$mod SHIFT, ${ws}, split-movetoworkspacesilent, ${ws}"
+              "$mod, ${ws}, split:workspace, ${ws}"
+              "$mod CTRL, ${ws}, split:movetoworkspace, ${ws}"
+              "$mod SHIFT, ${ws}, split:movetoworkspacesilent, ${ws}"
             ]
           )
           9));
@@ -231,7 +234,7 @@ in
 
     home.pointerCursor = {
       gtk.enable = true;
-      # x11.enable = true;
+      x11.enable = true;
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
       size = 16;

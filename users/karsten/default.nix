@@ -1,14 +1,11 @@
 { ... }:
+
 {
   imports = [
     ./programs.nix
     ./directories.nix
-    ../../modules/home-manager/desktops/hyprland
-    ../../modules/home-manager/services/kanshi
+    ../../modules/home-manager/services/bluetooth
   ];
-
-  # Enable Hyprland config
-  custom.desktop.hyprland.enable = true;
 
   home = {
     username = "karsten";

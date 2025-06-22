@@ -13,6 +13,8 @@
   # Home Manager
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
+    useGlobalPkgs = true;
+    useUserPackages = true;
     users.karsten = {
       imports = [
         ../../modules/home-manager/base.nix

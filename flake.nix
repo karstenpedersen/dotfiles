@@ -9,30 +9,35 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/nixos-wsl/main";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "github:hyprwm/hyprland";
-    split-monitor-workspaces = {
-      url = "github:duckonaut/split-monitor-workspaces";
-      inputs.hyprland.follows = "hyprland";
-    };
   };
 
-  outputs = { nixpkgs, ... }@inputs: {
-    nixosConfigurations = {
-      omen15 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [ ./hosts/omen15/configuration.nix ];
-      };
-      wsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [ ./hosts/wsl/configuration.nix ];
-      };
-      eq14-01 = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [ ./hosts/eq14/configuration.nix ];
+  outputs = { nixpkgs, ... }@inputs:
+    let
+      vars = import ./vars.nix;
+    
+      systems = [ "x86_64-linux" ];
+      forAllSystems = nixpkgs.lib.genAttrs systems;
+
+      mkNixOSConfig = path:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs vars; };
+          modules = [ path ];
+        };
+    in {
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+      nixosConfigurations = {
+        omen15 = mkNixOSConfig ./hosts/omen15/configuration.nix;
+        wsl = mkNixOSConfig ./hosts/wsl/configuration.nix;
+        eq14 = mkNixOSConfig ./hosts/eq14/configuration.nix;
+        iso = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+            "${nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal.nix"
+            ./hosts/iso/configuration.nix
+          ];
+        };
       };
     };
-  };
 }

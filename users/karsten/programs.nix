@@ -1,26 +1,19 @@
 { pkgs, ... }:
+
 {
   imports = [
     ../../modules/home-manager/programs/alacritty
     ../../modules/home-manager/programs/vscode
+    ../../modules/home-manager/programs/zathura
     ./cli.nix
   ];
 
   home.packages = with pkgs; [
-    spotify
-    webcord
+    discord
     zotero
     xournalpp
-    nextcloud-client
-    obs-studio
-    kdePackages.kdenlive
-    kdePackages.dragon
-    obsidian
     bruno
-    prismlauncher
-    # hyprland
     octaveFull
-    wdisplays
     godot_4
   ];
 }

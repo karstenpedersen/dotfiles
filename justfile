@@ -20,6 +20,10 @@ test:
 update:
 	@nix flake update
 
+# build iso image
+iso:
+	@nix build .#nixosConfigurations.iso.config.system.build.isoImage
+
 # see diffs made to flake.lock
 diff:
 	@git diff ':!flake.lock'

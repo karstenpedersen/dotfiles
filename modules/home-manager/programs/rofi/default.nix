@@ -3,10 +3,10 @@
 {
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
+    # package = pkgs.rofi-wayland;
     pass = {
       enable = true;
-      package = pkgs.rofi-pass-wayland;
+      # package = pkgs.rofi-pass-wayland;
       extraConfig = ''
         backend=wtype
         clipboard_backend=wl-clipboard
