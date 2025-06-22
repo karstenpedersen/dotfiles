@@ -6,7 +6,7 @@
       owner = config.users.users.karsten.name;
       inherit (config.users.users.karsten) group;
     };
-    sdu-eduroam-password = {
+    sdu-password = {
       owner = config.users.users.karsten.name;
       inherit (config.users.users.karsten) group;
     };

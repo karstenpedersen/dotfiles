@@ -4,8 +4,6 @@
   imports = [
     inputs.nixos-wsl.nixosModules.default
 
-    ./hardware-configuration.nix
-
     ../nixos/nix.nix
     ../nixos/locale.nix
   ];

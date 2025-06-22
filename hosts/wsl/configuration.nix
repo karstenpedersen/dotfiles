@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, vars, ... }:
 
 {
   imports = [
@@ -9,28 +9,26 @@
 
   # WSL
   wsl = {
-    defaultUser = "karsten";
+    defaultUser = vars.username;
     docker-desktop.enable = true;
   };
 
   # Home Manager
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      karsten = {
-        imports = [
-          ../../modules/home-manager/base.nix
-          ../../users/karsten
-        ];
-      };
+    extraSpecialArgs = { inherit inputs vars; };
+    users.${vars.username} = {
+      imports = [
+        ../../modules/home-manager/base.nix
+        ../../users/user/home.nix
+      ];
     };
     backupFileExtension = "hm";
   };
 
   # User
-  users.users.karsten = {
+  users.users.${vars.username} = {
     isNormalUser = true;
-    description = "karsten";
+    description = vars.username;
     shell = pkgs.bash;
   };
 

@@ -1,16 +1,24 @@
-{ ... }:
+{ vars, ... }:
 
 {
   services = {
     openssh = {
       enable = true;
-      ports = [ 22 ];
+      ports = [ vars.sshPort ];
       settings = {
         PasswordAuthentication = false;
-        AllowUsers = false;
         PermitRootLogin = "no";
       };
       openFirewall = true;
+
+      hostKeys = [
+        {
+          path = "/etc/ssh/ssh_host_ed25519_key";
+          type = "ed25519";
+        }
+      ];
     };
   };
+
+  networking.firewall.allowedTCPPorts = [ vars.sshPort ];
 }

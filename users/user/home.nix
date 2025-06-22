@@ -1,15 +1,14 @@
-{ ... }:
+{ vars, ... }:
 
 {
   imports = [
     ./programs.nix
     ./directories.nix
-    ../../modules/home-manager/services/bluetooth
   ];
 
   home = {
-    username = "karsten";
-    homeDirectory = "/home/karsten";
+    username = vars.username;
+    homeDirectory = "/home/${vars.username}";
     sessionVariables = {
       EDITOR = "hx";
       VISUAL = "code";

@@ -1,4 +1,4 @@
-{ inputs, pkgs, config, ... }:
+{ inputs, ... }:
 
 {
   imports = [
@@ -8,38 +8,11 @@
 
     ../../modules/nixos/base.nix
     ../../modules/nixos/ssh.nix
+    ../../modules/nixos/k3s.nix
+    ../../modules/nixos/fail2ban.nix
+
+    ../../users/server
   ];
-
-  # Home Manager
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.karsten = {
-      imports = [
-        ../../modules/home-manager/base.nix
-        ../../users/karsten
-      ];
-    };
-    backupFileExtension = "hm";
-  };
-
-  # Users
-  users.users.karsten = {
-    isNormalUser = true;
-    description = "karsten";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-    openssh.authorizedKeys.keys = [
-      "TODO"
-    ];
-    shell = pkgs.bash;
-    hashedPasswordFile = config.sops.secrets."user-password".path;
-  };
-
-  services.fstrim.enable = true;
 
   # Networking
   networking.hostName = "eq14";

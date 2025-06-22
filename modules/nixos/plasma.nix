@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ./xserver.nix
+  ];
+
   services = {
     desktopManager.plasma6.enable = true;
     displayManager.sddm.enable = true;
@@ -8,7 +12,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # kdePackages.discover
     kdePackages.kcalc
     kdePackages.kcharselect
     kdePackages.kcolorchooser
@@ -22,5 +25,9 @@
     haruna
     wayland-utils
     wl-clipboard
+  ];
+
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    konsole
   ];
 }
