@@ -17,7 +17,7 @@
       key_mgmt=WPA-EAP
       eap=PWD
       identity="${config.sops.secrets.sdu-email.path}"
-      password="${config.sops.secrets.sdu-eduroam-password.path}"
+      password="${config.sops.secrets.sdu-password.path}"
     '';
   };
 }

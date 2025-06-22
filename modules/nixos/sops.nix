@@ -9,7 +9,7 @@ in
 
   options.custom.host.sops = {
     sopsFile = lib.mkOption {
-      default = ../../../../ignored/secrets.yaml;
+      default = ../../../../secrets/secrets.yaml;
       description = ''
         Secrets file
       '';

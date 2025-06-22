@@ -1,7 +1,7 @@
 keys:
   - &omen15-karsten age1s2r2sjc4u7ngceqzkfqlykgn538kdpv05k06n2t5eucx6qy4ze7sq949q6
 creation_rules:
-  - path_regex: ignored/secrets.yaml$
+  - path_regex: secrets/secrets.yaml$
     key_groups:
       - age:
         - *omen15-karsten
