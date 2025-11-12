@@ -5,6 +5,7 @@
     ./programs.nix
     ./directories.nix
     # ./../../modules/home-manager/desktops/hyprland
+    ./../../modules/home-manager/desktops/niri
   ];
 
   home = {

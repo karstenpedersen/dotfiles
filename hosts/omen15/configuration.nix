@@ -14,7 +14,8 @@
     ../../modules/nixos/audio.nix
     # ../../modules/nixos/hyprland.nix
     ../../modules/nixos/services/emacs.nix
-    ../../modules/nixos/plasma.nix
+    # ../../modules/nixos/plasma.nix
+    ../../modules/nixos/niri.nix
     ../../modules/nixos/virtualization.nix
     ../../modules/nixos/ssh.nix
     ../../modules/nixos/nvidia.nix
