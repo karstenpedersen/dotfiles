@@ -47,7 +47,10 @@
         indent-guides = {
           enable = true;
         };
-      };      
+      };
+      keys.insert = {
+        "C-x" = "completion";
+      };
     };
     extraPackages = with pkgs; [
       markdown-oxide
@@ -68,37 +71,48 @@
       jdt-language-server
     ];
     languages = {
-      # language = [
-      #   {
-      #     name = "typescript";
-      #     file-types = [ "ts" "js" ];
-      #     language-server = {
-      #       command = "deno";
-      #       args = [ "lsp" ];
-      #     };
-      #     config = {
-      #       deno = {
-      #         enable = true;
-      #         lint = true;
-      #         importMap = "deno.json";
-      #       };
-      #     };
-      #   }
-      # ];
+      language = [
+        {
+          name = "typescript";
+          roots = [ "deno.json" "deno.jsonc" "package.json" ];
+          file-types = [ "ts" "tsx" ];
+          auto-format = true;
+          language-servers = [ "deno-lsp" ];
+        }
+        {
+          name = "javascript";
+          roots = [ "deno.json" "deno.jsonc" "package.json" ];
+          file-types = [ "js" "jsx" ];
+          auto-format = true;
+          language-servers = [ "deno-lsp" ];
+        }
+        {
+          name = "gleam";
+          language-servers = [
+            "gleam"
+            "tailwindcss-ls"
+          ];
+          auto-format = true;
+        }
+      ];
+      language-server = {
+        deno-lsp = {
+          command = "deno";
+          args = [ "lsp" ];
+          config.deno.enable = true;
+        };
+        tailwindcss-ls = {
+          command = "tailwindcss-language-server";
+          args = [ "--stdio" ];
+          config = {
+            tailwindCSS = {
+              includeLanguages = {
+                gleam = "html";
+              };
+            };
+          };
+        };
+      };
     };
   };
-  # home.file.".config/helix/hemux.sh".source = ''
-  #   #!/usr/bin/env bash
-
-  #   PANES=$(tmux list-panes | wc -l)
-  #   # echo $PANES
-  #   if [ "$PANES" -gt 1 ]
-  #     then
-  #       tmux send-keys -t 2 $1 Enter
-  #     else
-  #       tmux split-window -h
-  #       tmux send $1 Enter
-  #   fi
-  #   echo "$1" > /tmp/prev-tmux-command
-  # '';
 }

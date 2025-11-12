@@ -9,6 +9,8 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
     nixos-wsl.url = "github:nix-community/nixos-wsl/main";
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
+    unison-lang.url = "github:ceedubs/unison-nix";
+    unison-lang.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { nixpkgs, ... }@inputs:

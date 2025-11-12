@@ -12,12 +12,18 @@
     ../../modules/nixos/eduroam.nix
     ../../modules/nixos/bluetooth.nix
     ../../modules/nixos/audio.nix
+    # ../../modules/nixos/hyprland.nix
+    ../../modules/nixos/services/emacs.nix
     ../../modules/nixos/plasma.nix
     ../../modules/nixos/virtualization.nix
     ../../modules/nixos/ssh.nix
     ../../modules/nixos/nvidia.nix
 
     ../../users/user
+  ];
+
+  nixpkgs.overlays = [
+    inputs.unison-lang.overlay
   ];
 
   # Networking

@@ -7,6 +7,7 @@
     ../../modules/home-manager/programs/fzf
     ../../modules/home-manager/programs/btop
     ../../modules/home-manager/programs/git
+    ../../modules/home-manager/programs/jujutsu
     ../../modules/home-manager/programs/lazygit
     ../../modules/home-manager/programs/starship
     ../../modules/home-manager/programs/direnv
@@ -21,6 +22,8 @@
   ];
 
   home.packages = with pkgs; [
+    (callPackage ../../modules/home-manager/ctf.nix {})
+    openvpn
     devenv
     cz-cli
     man-pages
@@ -44,6 +47,7 @@
     gnupg
     trash-cli
     gh
+    exercism
     slides
     pre-commit
     calc
@@ -83,5 +87,6 @@
     dblab
     lazysql
     nap
+    unison-ucm
   ];
 }

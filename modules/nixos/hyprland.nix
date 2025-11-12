@@ -6,11 +6,11 @@
 
   # Display manager
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
   
   # Desktop
   programs.hyprland = {
     enable = true;
-    withUWSM = true;
   };
 
   nix.settings = {

@@ -29,4 +29,6 @@
       "docker"
     ];
   };
+
+  nix.settings.trusted-users = [ "karsten" ];
 }

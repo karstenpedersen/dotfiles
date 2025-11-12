@@ -4,6 +4,7 @@
   imports = [
     ./programs.nix
     ./directories.nix
+    # ./../../modules/home-manager/desktops/hyprland
   ];
 
   home = {
