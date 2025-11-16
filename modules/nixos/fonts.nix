@@ -5,8 +5,7 @@
     enableDefaultPackages = true;
     packages = with pkgs; [
       noto-fonts
-      noto-fonts-emoji
-      noto-fonts-extra
+      noto-fonts-color-emoji
       twemoji-color-font
       nerd-fonts.fira-mono
     ];

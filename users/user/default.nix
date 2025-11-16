@@ -1,4 +1,4 @@
-{ config, inputs, vars, ... }:
+{ config, inputs, vars, pkgs, ... }:
 
 {
   sops.secrets."${vars.username}-password".neededForUsers = true;
@@ -22,6 +22,7 @@
   users.users.${vars.username} = {
     isNormalUser = true;
     description = vars.username;
+    shell = pkgs.nushell;
     hashedPasswordFile = config.sops.secrets."${vars.username}-password".path;
     extraGroups = [
       "networkmanager"

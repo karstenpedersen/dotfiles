@@ -4,7 +4,7 @@
   programs.helix = {
     enable = true;
     settings = {
-      theme = "catppuccin_mocha";
+      theme = "term16_dark";
       editor = {
         line-number = "relative";
         scrolloff = 8;
@@ -59,7 +59,7 @@
       nodePackages.typescript-language-server
       nodePackages.svelte-language-server
       haskell-language-server
-      dockerfile-language-server-nodejs
+      dockerfile-language-server
       yaml-language-server
       docker-compose-language-service
       gopls

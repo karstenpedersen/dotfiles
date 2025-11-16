@@ -11,6 +11,13 @@
     nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
     unison-lang.url = "github:ceedubs/unison-nix";
     unison-lang.inputs.nixpkgs.follows = "nixpkgs";
+    quickshell.url = "github:outfoxxed/quickshell";
+    quickshell.inputs.nixpkgs.follows = "nixpkgs";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.quickshell.follows = "quickshell";
+    };
   };
 
   outputs = { nixpkgs, ... }@inputs:

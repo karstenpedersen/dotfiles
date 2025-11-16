@@ -3,6 +3,7 @@
 {
   imports = [
     ../../modules/home-manager/programs/bash
+    ../../modules/home-manager/programs/nushell
     ../../modules/home-manager/programs/yazi
     ../../modules/home-manager/programs/fzf
     ../../modules/home-manager/programs/btop
