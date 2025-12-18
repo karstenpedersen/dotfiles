@@ -10,8 +10,14 @@
   security.polkit.enable = true;
 
   # Display manager
-  services.displayManager.sddm.enable = true;
-  services.displayManager.sddm.wayland.enable = true;
+  # services.displayManager.sddm.enable = true;
+  # services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      
+    };
+  };
 
   # Secret service
   services.gnome.gnome-keyring.enable = true;

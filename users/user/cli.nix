@@ -46,14 +46,10 @@
     gnused
     sd
     gnupg
-    trash-cli
     gh
     exercism
-    slides
     pre-commit
-    calc
     wl-clipboard
-    ffmpegthumbnailer
     xdg-utils
 
     tealdeer
@@ -68,8 +64,15 @@
     gf
     gdb
 
+    lynis
+
     acpi
     wlr-randr
+
+    # Nix
+    nh
+    nix-melt
+    cachix
 
     # Containers
     podman
@@ -81,6 +84,10 @@
     # Processors
     jq
     yq
+
+    # Databases
+    duckdb
+    sqlite
 
     # TUI
     pulsemixer

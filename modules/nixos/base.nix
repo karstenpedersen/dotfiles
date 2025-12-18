@@ -16,7 +16,10 @@
   # Networking
   networking = {
     firewall.enable = true;
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      # wifi.backend = "iwd";
+    };
   };
 
   # Packages
@@ -26,9 +29,7 @@
     wget
     git
     just
-    gnumake
     chromium
-    firefox
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

@@ -1,7 +1,7 @@
 { vars, ... }:
 
 {
-  imports = [
+  imports = [    
     ./programs.nix
     ./directories.nix
     # ./../../modules/home-manager/desktops/hyprland
@@ -18,7 +18,7 @@
       TERM = "xterm-256color";
       TERMINAL = "alacritty";
       PAGER = "less";
-      BROWSER = "firefox";
+      BROWSER = "zen";
     };
   };
 }

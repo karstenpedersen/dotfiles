@@ -244,6 +244,22 @@ in
         }
         // commonUserSettings;
       };
+      lean = {
+        extensions =
+          with pkgs.vscode-extensions;
+          [
+            leanprover.lean4
+            tamasfe.even-better-toml
+            myriad-dreamin.tinymist
+          ]
+          ++ commonExtensions;
+        userSettings = {
+          "[typ]" = {
+            "editor.formatOnSave" = true;
+          };
+        }
+        // commonUserSettings;
+      };
       agda = {
         extensions =
           with pkgs.vscode-extensions;

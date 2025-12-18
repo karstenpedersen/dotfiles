@@ -7,7 +7,7 @@
       theme = "term16_dark";
       editor = {
         line-number = "relative";
-        scrolloff = 8;
+        scrolloff = 10;
         whitespace = {
           render = {
             # space = "all";
@@ -54,24 +54,22 @@
     };
     extraPackages = with pkgs; [
       markdown-oxide
-      texlab
       nodePackages.bash-language-server
-      nodePackages.typescript-language-server
-      nodePackages.svelte-language-server
-      haskell-language-server
       dockerfile-language-server
       yaml-language-server
       docker-compose-language-service
-      gopls
-      golangci-lint-langserver
       lua-language-server
       nil
-      rust-analyzer
-      templ
-      jdt-language-server
+      lldb
     ];
     languages = {
       language = [
+        {
+          name = "python";
+          language-servers = [ "pylsp" "ruff" ];
+          auto-format = true;
+          scope = "source.python";
+        }
         {
           name = "typescript";
           roots = [ "deno.json" "deno.jsonc" "package.json" ];
@@ -96,6 +94,15 @@
         }
       ];
       language-server = {
+        ruff = {
+          command = "ruff";
+          args = ["server"];
+        };
+        pylsp.config.pylsp.plugins = {
+          pylsp.mypy.enabled = true;
+          pylsp.mypy.live_mode = true;
+          rope_autoimport.enabled = true;
+        };
         deno-lsp = {
           command = "deno";
           args = [ "lsp" ];

@@ -16,7 +16,7 @@
     ../../modules/nixos/services/emacs.nix
     # ../../modules/nixos/plasma.nix
     ../../modules/nixos/niri.nix
-    ../../modules/nixos/noctalia.nix
+    # ../../modules/nixos/noctalia.nix
     ../../modules/nixos/virtualization.nix
     ../../modules/nixos/ssh.nix
     ../../modules/nixos/nvidia.nix

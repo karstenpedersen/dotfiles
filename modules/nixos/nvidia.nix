@@ -1,10 +1,15 @@
 { config, ... }:
 
 {
+  services.xserver.videoDrivers = [
+    "amdgpu"
+    "nvidia"
+  ];
+
   hardware = {
     graphics = {
       enable = true;
-      enable32Bit = true;
+      # enable32Bit = true;
     };
     nvidia = {
       modesetting.enable = true;
@@ -13,13 +18,16 @@
         finegrained = true;
       };
       prime = {
-        # offload.enable = true;
-        amdgpuBusId = "PCI:1:0:0";
-        nvidiaBusId = "PCI:7:0:0";
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+        amdgpuBusId = "PCI:7:0:0";
+        nvidiaBusId = "PCI:1:0:0";
       };
       open = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
-      # nvidiaSettings = true;
+      nvidiaSettings = true;
     };
   };
 }
