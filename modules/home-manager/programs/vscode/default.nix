@@ -253,12 +253,12 @@ in
             myriad-dreamin.tinymist
           ]
           ++ commonExtensions;
-        userSettings = {
+        userSettings = commonUserSettings // {
+          "editor.fontFamily" = "'JuliaMono'";
           "[typ]" = {
             "editor.formatOnSave" = true;
           };
-        }
-        // commonUserSettings;
+        };
       };
       agda = {
         extensions =

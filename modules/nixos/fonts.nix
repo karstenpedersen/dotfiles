@@ -8,6 +8,7 @@
       noto-fonts-color-emoji
       twemoji-color-font
       nerd-fonts.fira-mono
+      julia-mono
     ];
     fontconfig = {
       defaultFonts = {

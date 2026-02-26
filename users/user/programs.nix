@@ -9,10 +9,13 @@
     ../../modules/home-manager/programs/emacs
     ../../modules/home-manager/programs/vesktop
     ../../modules/home-manager/programs/zen-browser
+    ../../modules/home-manager/programs/nixvim
     ./cli.nix
   ];
 
   home.packages = with pkgs; [
+    logseq
+    obsidian
     zotero
     xournalpp
     bruno
@@ -20,6 +23,11 @@
     prismlauncher
     kdePackages.dolphin
     telegram-desktop
+    rnote
     pureref
+    seamly2d
+    freecad
+    steam
+    obs-studio
   ];
 }
