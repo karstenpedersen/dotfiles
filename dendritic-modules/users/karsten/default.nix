@@ -12,6 +12,7 @@
     {
       imports = [
         inputs.home-manager.nixosModules.home-manager
+        inputs.hjem.nixosModules.default
       ];
 
       users.users.${self.meta.users.karsten.username} = {

@@ -6,7 +6,7 @@
     {
       programs.hyprland = {
         enable = true;
-        withUWSM = true;
+        # withUWSM = true;
       };
       security.polkit.enable = true;
       # services.displayManager.sddm.enable = true;
@@ -22,6 +22,8 @@
         mako
         grimblast
         rofi
+        slurp
+        wl-clipboard
       ];
 
       wayland.windowManager.hyprland = {

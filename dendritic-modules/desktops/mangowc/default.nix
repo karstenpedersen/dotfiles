@@ -5,16 +5,16 @@
     {
       imports = [
         inputs.mangowc.nixosModules.mango
+        # config.flake.modules.nixos.wayland
       ];
+
       programs.mango = {
         enable = true;
-        addLoginEntry = true;
       };
+
       security.polkit.enable = true;
       services.displayManager.ly.enable = true;
-      # services.gnome.gnome-keyring.enable = true;
-      # services.displayManager.sddm.enable = true;
-      # services.displayManager.sddm.wayland.enable = true;
+      services.gnome.gnome-keyring.enable = true;
     };
 
   flake.modules.homeManager.mangowc =
@@ -24,12 +24,21 @@
         mako
         grim
         rofi
-        foot
         wlr-randr
+        slurp
+        wl-clipboard
+        cliphist
+        wl-clip-persist
+        swaybg
+        hyprpicker
+        waybar
+        brightnessctl
+        wireplumber
+        wev
       ];
 
-      home.file.".config/mango/config.conf" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/dendritic-modules/desktops/mangowc/config.conf";
+      home.file.".config/mango" = {
+        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/dendritic-modules/desktops/mangowc/config";
       };
 
       home.pointerCursor = {

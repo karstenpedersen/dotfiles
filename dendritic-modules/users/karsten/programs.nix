@@ -15,6 +15,7 @@
 
         self.modules.homeManager.nixvim
         self.modules.homeManager.emacs
+        self.modules.homeManager.zed-editor
       ];
 
       programs.alacritty.enable = true;
@@ -113,7 +114,6 @@
       programs.nushell.enable = true;
       programs.direnv.enable = true;
       programs.helix.enable = true;
-      programs.zed-editor.enable = true;
       programs.zathura.enable = true;
       programs.starship = {
         enable = true;
@@ -126,6 +126,7 @@
       programs.vscode.enable = true;
 
       home.packages = with pkgs; [
+        kdePackages.dolphin
         chromium
         zotero
         pureref

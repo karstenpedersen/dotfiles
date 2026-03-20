@@ -15,7 +15,7 @@
     {
       imports = [
         config.flake.modules.nixos.base
-        # config.flake.modules.nixos.hyprland
+        config.flake.modules.nixos.hyprland
         config.flake.modules.nixos.mangowc
         config.flake.modules.nixos.nix
         config.flake.modules.nixos.audio
@@ -29,10 +29,10 @@
         systemd-boot.enable = true;
         efi.canTouchEfiVariables = true;
       };
-      # Networking
-      networking.hostName = "omen15";
 
+      # Networking
       networking = {
+        hostName = "omen15";
         firewall.enable = true;
         networkmanager = {
           enable = true;

@@ -1,0 +1,16 @@
+* {
+    border: none;
+    font-family: "Fira Mono", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    min-height: 0;
+}
+
+window#waybar {
+    color: #ffffff;
+    background-color: #000000;
+}
+
+#battery,
+#network {
+    padding: 0 10px;
+}
