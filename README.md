@@ -7,10 +7,10 @@ My personal dotfiles.
 ```bash
 # Setup
 just init <host>
-just rebuild
+just switch
 
 # Rebuild
-just rebuild
+just switch
 ```
 
 ### Setup SOPS

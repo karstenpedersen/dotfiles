@@ -3,7 +3,7 @@
 host_file="$1"
 
 if [ -z "$host_file" ]; then
-    echo "usage: ./rebuild.sh <host_file>"
+    echo "usage: ./switch.sh <host_file>"
     exit 1
 fi
 
