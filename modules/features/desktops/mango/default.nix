@@ -1,11 +1,11 @@
-{ inputs, ... }:
+{ self, inputs, ... }:
 {
   flake.modules.nixos.mangowc =
     { config, pkgs, ... }:
     {
       imports = [
         inputs.mangowc.nixosModules.mango
-        # config.flake.modules.nixos.wayland
+        self.modules.nixos.wayland
       ];
 
       programs.mango = {
@@ -20,6 +20,10 @@
   flake.modules.homeManager.mangowc =
     { config, pkgs, ... }:
     {
+      imports = [
+        self.modules.homeManager.dms
+      ];
+
       home.packages = with pkgs; [
         mako
         grim
@@ -41,31 +45,31 @@
         source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/features/desktops/mango/config";
       };
 
-      home.pointerCursor = {
-        gtk.enable = true;
-        # x11.enable = true;
-        package = pkgs.bibata-cursors;
-        name = "Bibata-Modern-Classic";
-        size = 16;
-      };
+      # home.pointerCursor = {
+      #   gtk.enable = true;
+      #   # x11.enable = true;
+      #   package = pkgs.bibata-cursors;
+      #   name = "Bibata-Modern-Classic";
+      #   size = 16;
+      # };
 
-      gtk = {
-        enable = true;
+      # gtk = {
+      #   enable = true;
 
-        theme = {
-          package = pkgs.flat-remix-gtk;
-          name = "Flat-Remix-GTK-Grey-Darkest";
-        };
+      #   theme = {
+      #     package = pkgs.flat-remix-gtk;
+      #     name = "Flat-Remix-GTK-Grey-Darkest";
+      #   };
 
-        iconTheme = {
-          package = pkgs.adwaita-icon-theme;
-          name = "Adwaita";
-        };
+      #   iconTheme = {
+      #     package = pkgs.adwaita-icon-theme;
+      #     name = "Adwaita";
+      #   };
 
-        font = {
-          name = "Sans";
-          size = 11;
-        };
-      };
+      #   font = {
+      #     name = "Sans";
+      #     size = 11;
+      #   };
+      # };
     };
 }

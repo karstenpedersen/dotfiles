@@ -20,7 +20,10 @@
         self.modules.nixos.karsten
         self.modules.nixos.nvidia
         self.modules.nixos.amd
+        self.modules.nixos.agenix
       ];
+
+      services.dbus.enable = true;
 
       # Bootloader
       boot.loader = {
@@ -45,8 +48,9 @@
         git
         just
         chromium
+        dconf
       ];
 
-      system.stateVersion = "24.05";
+      system.stateVersion = "26.05";
     };
 }
