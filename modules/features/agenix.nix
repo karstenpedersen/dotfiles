@@ -13,12 +13,4 @@
         inputs.agenix.packages.x86_64-linux.default
       ];
     };
-
-  flake.modules.homeManager.agenix =
-    { pkgs, ... }:
-    {
-      imports = [
-        inputs.agenix.homeManagerModules.default
-      ];
-    };
 }

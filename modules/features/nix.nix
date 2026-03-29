@@ -1,7 +1,8 @@
-{ lib, inputs, config, ... }:
+{ ... }:
+
 {
   flake.modules.nixos.nix =
-    { pkgs, ... }:
+    { ... }:
     {
       nix = {
         # Make nix3 and legacy nix commands consistent

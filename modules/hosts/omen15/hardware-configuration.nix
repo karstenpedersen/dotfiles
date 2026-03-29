@@ -5,7 +5,7 @@
 
 {
   flake.modules.nixos.omen15 =
-    { config, lib, pkgs, modulesPath, ... }:
+    { config, lib, modulesPath, ... }:
     {
       imports = [
         (modulesPath + "/installer/scan/not-detected.nix")

@@ -16,7 +16,7 @@
         defaultFonts = {
           serif = [ "Noto Serif" ];
           sansSerif = [ "Noto Sans" ];
-          monospace = [ "Fira Mono" ];
+          monospace = [ "JuliaMono" ];
         };
       };
     };

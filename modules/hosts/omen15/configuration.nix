@@ -1,6 +1,10 @@
 { self, inputs, ... }:
 {
-  flake.nixosConfigurations.omen15 = inputs.nixpkgs.lib.nixosSystem {
+  flake.meta-hosts.omen15 = {
+    name = "omen15";
+  };
+
+  flake.nixosConfigurations.${self.meta-hosts.omen15.name} = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
       self.modules.nixos.omen15
@@ -8,22 +12,27 @@
   };
 
   flake.modules.nixos.omen15 =
-    { pkgs, config, ... }:
+    { pkgs, ... }:
+    let
+      omen15 = self.meta-hosts.omen15;
+    in
     {
       imports = [
-        self.modules.nixos.base
-        self.modules.nixos.mangowc
         self.modules.nixos.nix
-        self.modules.nixos.audio
-        self.modules.nixos.bluetooth
+        self.modules.nixos.mangowc
         self.modules.nixos.locale
-        self.modules.nixos.karsten
+        self.modules.nixos.agenix
+        self.modules.nixos.unfree
         self.modules.nixos.nvidia
         self.modules.nixos.amd
-        self.modules.nixos.agenix
+        # self.modules.nixos.cuda
+
+        self.modules.nixos.karsten
       ];
 
       services.dbus.enable = true;
+
+      programs.nix-ld.enable = true;
 
       # Bootloader
       boot.loader = {
@@ -33,7 +42,7 @@
 
       # Networking
       networking = {
-        hostName = "omen15";
+        hostName = omen15.name;
         firewall.enable = true;
         networkmanager = {
           enable = true;
@@ -41,7 +50,6 @@
       };
 
       # Packages
-      nixpkgs.config.allowUnfree = true;
       environment.systemPackages = with pkgs; [
         micro
         wget
@@ -49,6 +57,7 @@
         just
         chromium
         dconf
+        kdePackages.dolphin
       ];
 
       system.stateVersion = "26.05";

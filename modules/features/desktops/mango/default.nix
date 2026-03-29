@@ -1,75 +1,28 @@
 { self, inputs, ... }:
+
 {
   flake.modules.nixos.mangowc =
-    { config, pkgs, ... }:
+    { pkgs, ... }:
     {
       imports = [
         inputs.mangowc.nixosModules.mango
+
         self.modules.nixos.wayland
+        self.modules.nixos.audio
+        self.modules.nixos.bluetooth
+        self.modules.nixos.dms
       ];
 
       programs.mango = {
         enable = true;
       };
 
+      environment.systemPackages = with pkgs; [
+        foot # Mango's default terminal
+      ];
+
       security.polkit.enable = true;
       services.displayManager.ly.enable = true;
       services.gnome.gnome-keyring.enable = true;
-    };
-
-  flake.modules.homeManager.mangowc =
-    { config, pkgs, ... }:
-    {
-      imports = [
-        self.modules.homeManager.dms
-      ];
-
-      home.packages = with pkgs; [
-        mako
-        grim
-        rofi
-        wlr-randr
-        slurp
-        wl-clipboard
-        cliphist
-        wl-clip-persist
-        swaybg
-        hyprpicker
-        waybar
-        brightnessctl
-        wireplumber
-        wev
-      ];
-
-      home.file.".config/mango" = {
-        source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/dotfiles/modules/features/desktops/mango/config";
-      };
-
-      # home.pointerCursor = {
-      #   gtk.enable = true;
-      #   # x11.enable = true;
-      #   package = pkgs.bibata-cursors;
-      #   name = "Bibata-Modern-Classic";
-      #   size = 16;
-      # };
-
-      # gtk = {
-      #   enable = true;
-
-      #   theme = {
-      #     package = pkgs.flat-remix-gtk;
-      #     name = "Flat-Remix-GTK-Grey-Darkest";
-      #   };
-
-      #   iconTheme = {
-      #     package = pkgs.adwaita-icon-theme;
-      #     name = "Adwaita";
-      #   };
-
-      #   font = {
-      #     name = "Sans";
-      #     size = 11;
-      #   };
-      # };
     };
 }

@@ -12,7 +12,7 @@
   "widgetColorMode": "default",
   "controlCenterTileColorMode": "primary",
   "buttonColorMode": "primary",
-  "cornerRadius": 12,
+  "cornerRadius": 0,
   "niriLayoutGapsOverride": -1,
   "niriLayoutRadiusOverride": -1,
   "niriLayoutBorderSize": -1,
@@ -30,12 +30,12 @@
   "nightModeEnabled": false,
   "animationSpeed": 1,
   "customAnimationDuration": 500,
-  "syncComponentAnimationSpeeds": true,
+  "syncComponentAnimationSpeeds": false,
   "popoutAnimationSpeed": 1,
   "popoutCustomAnimationDuration": 150,
   "modalAnimationSpeed": 1,
   "modalCustomAnimationDuration": 150,
-  "enableRippleEffects": true,
+  "enableRippleEffects": false,
   "wallpaperFillMode": "Fill",
   "blurredWallpaperLayer": false,
   "blurWallpaperOnOverview": false,
@@ -224,7 +224,7 @@
   "dankLauncherV2UnloadOnClose": false,
   "useAutoLocation": false,
   "weatherEnabled": false,
-  "networkPreference": "auto",
+  "networkPreference": "wifi",
   "iconTheme": "System Default",
   "cursorSettings": {
     "theme": "Apple-cursors",
@@ -349,10 +349,10 @@
   "notificationPopupPrivacyMode": false,
   "modalDarkenBackground": true,
   "lockScreenShowPowerActions": true,
-  "lockScreenShowSystemIcons": true,
-  "lockScreenShowTime": true,
-  "lockScreenShowDate": true,
-  "lockScreenShowProfileImage": true,
+  "lockScreenShowSystemIcons": false,
+  "lockScreenShowTime": false,
+  "lockScreenShowDate": false,
+  "lockScreenShowProfileImage": false,
   "lockScreenShowPasswordField": true,
   "lockScreenShowMediaPlayer": true,
   "lockScreenPowerOffMonitorsOnLock": false,
@@ -417,8 +417,23 @@
   "showOnLastDisplay": {},
   "niriOutputSettings": {},
   "hyprlandOutputSettings": {},
-  "displayProfiles": {},
-  "activeDisplayProfile": {},
+  "displayProfiles": {
+    "dwl": {
+      "profile_1774562402490_tibwg1": {
+        "id": "profile_1774562402490_tibwg1",
+        "name": "home",
+        "outputSet": [
+          "HDMI-A-1",
+          "eDP-1"
+        ],
+        "createdAt": 1774562402490,
+        "updatedAt": 1774562402490
+      }
+    }
+  },
+  "activeDisplayProfile": {
+    "dwl": "profile_1774562402490_tibwg1"
+  },
   "displayProfileAutoSelect": false,
   "displayShowDisconnected": false,
   "displaySnapToEdge": true,
@@ -433,6 +448,10 @@
       ],
       "showOnLastDisplay": true,
       "leftWidgets": [
+        {
+          "id": "layout",
+          "enabled": true
+        },
         {
           "id": "focusedWindow",
           "enabled": true,
@@ -477,7 +496,8 @@
       "scrollEnabled": false,
       "widgetPadding": 8,
       "maximizeWidgetIcons": false,
-      "widgetOutlineEnabled": false
+      "widgetOutlineEnabled": false,
+      "removeWidgetPadding": false
     }
   ],
   "desktopClockEnabled": false,
