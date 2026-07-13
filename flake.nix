@@ -40,9 +40,9 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    treefmt-nix.inputs = {
+    treefmt-nix = {
       url = "github:numtide/treefmt-nix";
-      nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     agenix.url = "github:ryantm/agenix";
     dms = {

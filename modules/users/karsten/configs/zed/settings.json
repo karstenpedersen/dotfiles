@@ -1,4 +1,24 @@
 {
+  "icon_theme": "Zed (Default)",
+  "cli_default_open_behavior": "new_window",
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "agent": {
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "gpt-5.5",
+      "enable_thinking": true,
+      "effort": "medium"
+    },
+    "dock": "left",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "dock": "left",
+  },
   "preview_tabs": {
     "enabled": false,
   },
@@ -6,6 +26,7 @@
     "active_language_button": true,
   },
   "outline_panel": {
+    "dock": "left",
     "folder_icons": true,
   },
   "project_panel": {
@@ -25,9 +46,9 @@
   "ui_font_size": 16.0,
   "buffer_font_size": 16.0,
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "Light",
-    "dark": "Dark",
+    "dark": "Gleam Dark",
   },
   "soft_wrap": "editor_width",
   "title_bar": {
@@ -45,12 +66,12 @@
     "quick_actions": false,
   },
   "lsp": {
-    "tinymist": {
-      "settings": {
-        "exportPdf": "onSave",
-        "outputPath": "$root/$name",
-      },
-    },
+    // "tinymist": {
+    //   "settings": {
+    //     "exportPdf": "onSave",
+    //     "outputPath": "$root/$name",
+    //   },
+    // },
     "ruff": {
       "binary": {
         "path": "ruff",

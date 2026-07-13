@@ -34,6 +34,11 @@
 
       programs.nix-ld.enable = true;
 
+      programs.gnupg.agent = {
+        enable = true;
+        pinentryPackage = pkgs.pinentry-curses;  # or choose one below
+      };
+
       # Bootloader
       boot.loader = {
         systemd-boot.enable = true;
