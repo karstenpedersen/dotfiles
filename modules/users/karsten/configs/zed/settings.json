@@ -48,7 +48,7 @@
   "theme": {
     "mode": "dark",
     "light": "Light",
-    "dark": "Gleam Dark",
+    "dark": "Godot",
   },
   "soft_wrap": "editor_width",
   "title_bar": {
@@ -78,6 +78,11 @@
         "arguments": ["server"],
       },
     },
+  },
+  "languages": {
+    "CSharp": {
+      "language_servers": ["csharp-ls", "!roslyn", "!omnisharp"]
+    }
   },
   "buffer_font_family": "DejaVu Sans Mono",
   "ui_font_family": "DejaVu Sans",

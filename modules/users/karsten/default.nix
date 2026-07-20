@@ -5,6 +5,7 @@
     email = "karstenfp.all@gmail.com";
     name = "Karsten";
     username = "karsten";
+    githubName = "Karsten Pedersen";
     directory = "/home/karsten";
     extra = {
       currentSemester = "8-semester";
@@ -15,6 +16,8 @@
     { pkgs, ... }:
     let
       karsten = self.meta.users.karsten;
+
+      selfpkgs = self.packages."${pkgs.system}";
 
       myEmacs = pkgs.emacs.pkgs.withPackages (epkgs: with epkgs; [
         evil
@@ -160,17 +163,31 @@
           nushell
           bash
           direnv
-          starship
-          yazi
+          # starship
+          # yazi
           yaziPlugins.piper
           jjui
-          jujutsu
+          # jujutsu
           zellij
+          pgmodeler
+          croc
 
-          # godot-m
+          godot-mono
           # dotnet-sdk
+          # dotnet-sdk_10
 
-          helix
+          (with pkgs.dotnetCorePackages; combinePackages [
+            sdk_8_0
+            sdk_10_0
+          ])
+          aseprite
+          csharp-ls
+
+          selfpkgs.helix
+          selfpkgs.yazi
+          selfpkgs.starship
+          selfpkgs.jujutsu
+          selfpkgs.zen
           vscode
           lmstudio
           zed-editor

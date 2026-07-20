@@ -15,6 +15,8 @@
     { pkgs, ... }:
     let
       omen15 = self.meta-hosts.omen15;
+
+      selfpkgs = self.packages."${pkgs.system}";
     in
     {
       imports = [
@@ -32,7 +34,15 @@
 
       services.dbus.enable = true;
 
-      programs.nix-ld.enable = true;
+      programs.nix-ld = {
+        enable = true;
+        libraries = with pkgs; [
+          (with pkgs.dotnetCorePackages; combinePackages [
+            sdk_8_0
+            sdk_10_0
+          ])
+        ];
+      };
 
       programs.gnupg.agent = {
         enable = true;
@@ -55,15 +65,20 @@
       };
 
       # Packages
-      environment.systemPackages = with pkgs; [
-        micro
-        wget
-        git
-        just
-        chromium
-        dconf
-        kdePackages.dolphin
+      environment.systemPackages = [
+        pkgs.micro
+        pkgs.wget
+        pkgs.just
+        pkgs.chromium
+        pkgs.dconf
+        pkgs.kdePackages.dolphin
+        # git
+        selfpkgs.git
       ];
+
+      environment.sessionVariables = {
+        DOTNET_ROOT = "${pkgs.dotnet-sdk}/share/dotnet";
+      };
 
       system.stateVersion = "26.05";
     };
