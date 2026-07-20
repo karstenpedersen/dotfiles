@@ -171,15 +171,6 @@
           zellij
           pgmodeler
           croc
-
-          godot-mono
-          # dotnet-sdk
-          # dotnet-sdk_10
-
-          (with pkgs.dotnetCorePackages; combinePackages [
-            sdk_8_0
-            sdk_10_0
-          ])
           aseprite
           csharp-ls
 

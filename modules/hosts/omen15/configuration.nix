@@ -27,6 +27,7 @@
         self.modules.nixos.unfree
         self.modules.nixos.nvidia
         self.modules.nixos.amd
+        self.modules.nixos.godot
         # self.modules.nixos.cuda
 
         self.modules.nixos.karsten
@@ -36,12 +37,6 @@
 
       programs.nix-ld = {
         enable = true;
-        libraries = with pkgs; [
-          (with pkgs.dotnetCorePackages; combinePackages [
-            sdk_8_0
-            sdk_10_0
-          ])
-        ];
       };
 
       programs.gnupg.agent = {
