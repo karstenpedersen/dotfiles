@@ -60,9 +60,10 @@
         };
 
         xdg.config.files = {
-          "mango".source = "${karsten.directory}/dotfiles/modules/users/karsten/configs/mango";
-          "DankMaterialShell".source = "${karsten.directory}/dotfiles/modules/users/karsten/configs/dms";
-          "zed".source = "${karsten.directory}/dotfiles/modules/users/karsten/configs/zed";
+          "mango".source = "${karsten.directory}/dotfiles/modules/users/karsten/programs/mango/config/";
+          "DankMaterialShell".source =
+            "${karsten.directory}/dotfiles/modules/users/karsten/programs/dms/config/";
+          "zed".source = "${karsten.directory}/dotfiles/modules/users/karsten/programs/zed/config/";
 
           "user-dirs.dirs".text = ''
             XDG_DOWNLOAD_DIR="$HOME/downloads"

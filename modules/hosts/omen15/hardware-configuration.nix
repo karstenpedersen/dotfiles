@@ -4,7 +4,7 @@
 # { config, lib, pkgs, modulesPath, ... }:
 
 {
-  flake.modules.nixos.omen15 =
+  flake.modules.nixos.hostOmen15 =
     {
       config,
       lib,

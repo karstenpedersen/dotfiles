@@ -7,16 +7,16 @@
   flake.nixosConfigurations.${self.meta-hosts.omen15.name} = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     modules = [
-      self.modules.nixos.omen15
+      self.modules.nixos.hostOmen15
     ];
   };
 
-  flake.modules.nixos.omen15 =
+  flake.modules.nixos.hostOmen15 =
     { pkgs, ... }:
     let
       omen15 = self.meta-hosts.omen15;
 
-      selfpkgs = self.packages."${pkgs.system}";
+      selfpkgs = self.packages."${pkgs.stdenv.hostPlatform.system}";
     in
     {
       imports = [

@@ -3,6 +3,6 @@
     imports = [ wlib.modules.default ];
 
     package = pkgs.zellij;
-    env.ZELLIJ_CONFIG_FILE = ../configs/zellij/config.kdl;
+    env.ZELLIJ_CONFIG_FILE = ./config.kdl;
   };
 }
