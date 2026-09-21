@@ -79,53 +79,54 @@
               "h" 'dired-up-directory
               "l" 'dired-find-file))
         '';
-        extraPackages = epkgs: with epkgs; [
-          evil
-          evil-surround
-          use-package
-          evil-collection
-          # general
-          # which-key
-          # hydra
-          # yasnippet
-          undo-tree
-          # company               # completion framework
-          # projectile
-          # consult
-          # vertico
-          # orderless
+        extraPackages =
+          epkgs: with epkgs; [
+            evil
+            evil-surround
+            use-package
+            evil-collection
+            # general
+            # which-key
+            # hydra
+            # yasnippet
+            undo-tree
+            # company               # completion framework
+            # projectile
+            # consult
+            # vertico
+            # orderless
 
-          # direnv
-          envrc
-          # epkgs.bazel
+            # direnv
+            envrc
+            # epkgs.bazel
 
-          # epkgs.eterm-256color
+            # epkgs.eterm-256color
 
-          magit
+            magit
 
-          pdf-tools
+            pdf-tools
 
-          # epkgs.presentation
-          # epkgs.catppuccin-theme
+            # epkgs.presentation
+            # epkgs.catppuccin-theme
 
-          # epkgs.gtags-mode
-          # epkgs.ggtags
+            # epkgs.gtags-mode
+            # epkgs.ggtags
 
-          # epkgs.dired-single
+            # epkgs.dired-single
 
-          # Languages
-          go-mode
-          templ-ts-mode
-          web-mode
-          svelte-mode
-          rjsx-mode
-          agda2-mode
-          gleam-ts-mode
-          elixir-ts-mode
-          erlang-ts
-          uv-mode
-          python-mode
-        ];
+            # Languages
+            go-mode
+            templ-ts-mode
+            web-mode
+            svelte-mode
+            rjsx-mode
+            agda2-mode
+            gleam-ts-mode
+            elixir-ts-mode
+            erlang-ts
+            uv-mode
+            python-mode
+          ];
       };
 
       home.packages = with pkgs; [

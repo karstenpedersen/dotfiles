@@ -6,10 +6,13 @@
       environment.systemPackages = [
         pkgs.godot-mono
 
-        (with pkgs.dotnetCorePackages; combinePackages [
-          sdk_8_0
-          sdk_10_0
-        ])
+        (
+          with pkgs.dotnetCorePackages;
+          combinePackages [
+            sdk_8_0
+            sdk_10_0
+          ]
+        )
       ];
 
       environment.sessionVariables = {
@@ -18,10 +21,13 @@
 
       programs.nix-ld = {
         libraries = with pkgs; [
-          (with pkgs.dotnetCorePackages; combinePackages [
-            sdk_8_0
-            sdk_10_0
-          ])
+          (
+            with pkgs.dotnetCorePackages;
+            combinePackages [
+              sdk_8_0
+              sdk_10_0
+            ]
+          )
         ];
       };
     };

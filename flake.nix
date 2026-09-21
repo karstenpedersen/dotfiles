@@ -8,7 +8,7 @@
     systems.url = "github:nix-systems/default";
     wrappers.url = "github:nix-community/nix-wrapper-modules";
     wrappers.inputs.nixpkgs.follows = "nixpkgs";
- # sops-nix = {
+    # sops-nix = {
     #   url = "github:mic92/sops-nix";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };

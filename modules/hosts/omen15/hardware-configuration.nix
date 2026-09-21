@@ -5,26 +5,38 @@
 
 {
   flake.modules.nixos.omen15 =
-    { config, lib, modulesPath, ... }:
+    {
+      config,
+      lib,
+      modulesPath,
+      ...
+    }:
     {
       imports = [
         (modulesPath + "/installer/scan/not-detected.nix")
       ];
 
-      boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
+      boot.initrd.availableKernelModules = [
+        "xhci_pci"
+        "nvme"
+        "ahci"
+        "usb_storage"
+        "sd_mod"
+        "sdhci_pci"
+      ];
       boot.initrd.kernelModules = [ ];
       boot.kernelModules = [ "kvm-amd" ];
       boot.extraModulePackages = [ ];
 
-      fileSystems."/" =
-        { device = "/dev/disk/by-uuid/4d662a10-8154-4cd2-89c2-b7bdbf51d7ae";
-          fsType = "ext4";
-        };
+      fileSystems."/" = {
+        device = "/dev/disk/by-uuid/4d662a10-8154-4cd2-89c2-b7bdbf51d7ae";
+        fsType = "ext4";
+      };
 
-      fileSystems."/boot" =
-        { device = "/dev/disk/by-uuid/95B7-E3F8";
-          fsType = "vfat";
-        };
+      fileSystems."/boot" = {
+        device = "/dev/disk/by-uuid/95B7-E3F8";
+        fsType = "vfat";
+      };
 
       swapDevices = [ ];
 
