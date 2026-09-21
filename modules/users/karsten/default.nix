@@ -125,6 +125,12 @@
           pinentry-curses
           unzip
           zip
+          file
+          tree
+          bat
+          fd
+          ripgrep
+          serve
         ];
       };
 
