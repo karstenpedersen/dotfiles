@@ -3,15 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # home-manager = {
-    #   url = "github:nix-community/home-manager";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
     flake-parts.url = "github:hercules-ci/flake-parts";
     import-tree.url = "github:vic/import-tree";
     systems.url = "github:nix-systems/default";
-    wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
-    # sops-nix = {
+    wrappers.url = "github:nix-community/nix-wrapper-modules";
+    wrappers.inputs.nixpkgs.follows = "nixpkgs";
+ # sops-nix = {
     #   url = "github:mic92/sops-nix";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };

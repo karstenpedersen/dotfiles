@@ -12,6 +12,10 @@
         ])
       ];
 
+      environment.sessionVariables = {
+        DOTNET_ROOT = "${pkgs.dotnet-sdk}/share/dotnet";
+      };
+
       programs.nix-ld = {
         libraries = with pkgs; [
           (with pkgs.dotnetCorePackages; combinePackages [

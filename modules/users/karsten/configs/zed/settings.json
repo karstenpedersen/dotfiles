@@ -1,20 +1,33 @@
 {
-  "icon_theme": "Zed (Default)",
+  "proxy": "",
+  "file_scan_exclusions": [],
+  "show_edit_predictions": false,
+  "edit_predictions": {
+    "allow_data_collection": "no",
+    "provider": "zed"
+  },
+  "language_models": {
+    "mistral": {
+      "available_models": [
+        {
+          "name": "glm-5-2",
+          "display_name": "GLM 5.2",
+          "max_tokens": 1048576,
+          // "capabilities": { "tools": true, "images": false }
+        }
+      ]
+    }
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
   "cli_default_open_behavior": "new_window",
   "collaboration_panel": {
     "dock": "left",
   },
   "agent": {
-    "default_profile": "ask",
-    "default_model": {
-      "provider": "zed.dev",
-      "model": "gpt-5.5",
-      "enable_thinking": true,
-      "effort": "medium"
-    },
-    "dock": "left",
-    "favorite_models": [],
-    "model_parameters": [],
   },
   "git_panel": {
     "dock": "left",
@@ -48,7 +61,7 @@
   "theme": {
     "mode": "dark",
     "light": "Light",
-    "dark": "Godot",
+    "dark": "Gleam Dark",
   },
   "soft_wrap": "editor_width",
   "title_bar": {
@@ -56,7 +69,7 @@
     "show_user_picture": false,
     "show_sign_in": false,
   },
-  "disable_ai": true,
+  "disable_ai": false,
   "tab_bar": {
     "show_nav_history_buttons": false,
     "show_tab_bar_buttons": false,
@@ -72,6 +85,21 @@
     //     "outputPath": "$root/$name",
     //   },
     // },
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always"
+          }
+        }
+      },
+      "enable_lsp_tasks": true
+    },
     "ruff": {
       "binary": {
         "path": "ruff",
@@ -82,6 +110,12 @@
   "languages": {
     "CSharp": {
       "language_servers": ["csharp-ls", "!roslyn", "!omnisharp"]
+    },
+    "Elixir": {
+      "language_servers": ["dexter", "elixir-ls"]
+    },
+    "HEEx": {
+      "language_servers": ["dexter", "elixir-ls"]
     }
   },
   "buffer_font_family": "DejaVu Sans Mono",

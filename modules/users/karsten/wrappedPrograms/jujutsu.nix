@@ -1,21 +1,19 @@
-{ self, inputs, ... }:
-
+{ self, ... }:
 {
-  perSystem =
-    { pkgs, ... }:
+  flake.wrappers.jujutsu =
+    { wlib, ... }:
     let
       user = self.meta.users.karsten;
     in
     {
-      packages.jujutsu = inputs.wrapper-modules.wrappers.jujutsu.wrap {
-        inherit pkgs;
+      imports = [ wlib.wrapperModules.jujutsu ];
 
-        settings = {
-          user.name = user.githubName;
-          user.email = user.email;
+      settings = {
+        user.name = user.githubName;
+        user.email = user.email;
 
-          ui.default-command = "log";
-        };
+        ui.editor = "hx";
+        ui.default-command = "log";
       };
     };
 }

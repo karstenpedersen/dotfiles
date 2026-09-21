@@ -4,7 +4,7 @@
   perSystem =
     { pkgs, ... }:
     {
-      packages.yazi = inputs.wrapper-modules.wrappers.yazi.wrap {
+      packages.yazi = inputs.wrappers.wrappers.yazi.wrap {
         inherit pkgs;
       };
     };

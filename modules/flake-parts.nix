@@ -1,6 +1,6 @@
 {inputs, ...}: {
   imports = [
-    inputs.wrapper-modules.flakeModules.wrappers
+    inputs.wrappers.flakeModules.wrappers
     inputs.flake-parts.flakeModules.modules
   ];
 

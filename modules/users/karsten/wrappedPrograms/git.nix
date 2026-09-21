@@ -7,7 +7,7 @@
       user = self.meta.users.karsten;
     in
     {
-      packages.git = inputs.wrapper-modules.wrappers.git.wrap {
+      packages.git = inputs.wrappers.wrappers.git.wrap {
         inherit pkgs;
 
         settings = {

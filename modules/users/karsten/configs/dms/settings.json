@@ -600,11 +600,6 @@
         {
           "id": "layout",
           "enabled": true
-        },
-        {
-          "id": "focusedWindow",
-          "enabled": true,
-          "focusedWindowCompactMode": true
         }
       ],
       "centerWidgets": [
@@ -618,7 +613,12 @@
         "cpuUsage",
         "memUsage",
         "notificationButton",
-        "battery",
+        {
+          "id": "battery",
+          "enabled": true,
+          "showBatteryPercentOnlyOnBattery": false,
+          "batteryPillStyle": false
+        },
         "controlCenterButton"
       ],
       "spacing": 0,
@@ -724,6 +724,9 @@
   "builtInPluginSettings": {
     "dms_settings_search": {
       "trigger": "?"
+    },
+    "dms_clipboard_search": {
+      "trigger": "cb"
     }
   },
   "clipboardClickToPaste": false,

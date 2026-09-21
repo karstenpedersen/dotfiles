@@ -28,7 +28,7 @@
         self.modules.nixos.nvidia
         self.modules.nixos.amd
         self.modules.nixos.godot
-        # self.modules.nixos.cuda
+        self.modules.nixos.voyager
 
         self.modules.nixos.karsten
       ];
@@ -41,13 +41,25 @@
 
       programs.gnupg.agent = {
         enable = true;
-        pinentryPackage = pkgs.pinentry-curses;  # or choose one below
+        pinentryPackage = pkgs.pinentry-curses;
       };
 
       # Bootloader
       boot.loader = {
         systemd-boot.enable = true;
         efi.canTouchEfiVariables = true;
+      };
+
+      boot.enableContainers = true;
+
+      # Virtualisation
+      virtualisation.containers.enable = true;
+      virtualisation.podman = {
+        enable = true;
+        defaultNetwork.settings.dns_enabled = true;
+      };
+      virtualisation.docker = {
+        enable = true;
       };
 
       # Networking
@@ -67,13 +79,8 @@
         pkgs.chromium
         pkgs.dconf
         pkgs.kdePackages.dolphin
-        # git
         selfpkgs.git
       ];
-
-      environment.sessionVariables = {
-        DOTNET_ROOT = "${pkgs.dotnet-sdk}/share/dotnet";
-      };
 
       system.stateVersion = "26.05";
     };
